@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Micro Blog</title>
+</head>
+<body>
+<form action="/message" method="post">
+<input type="text" placeholder="Enter your messages" name="text">
+<button type="submit">Submit</button>
+</form>
+{{#messages}}
+<table>
+    <th>Message</th>
+    <tr>
+        <td>{{text}}</td>
+        <td>
+            <form action="/update-message" method="get">
+                <input type="hidden" value="{{id}}" name="id">
+                <button type="submit">Update</button>
+            </form>
+        </td>
+        <td>
+            <form action="/delete-message" method="post">
+                <input type="hidden" value="{{id}}" name="id">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+{{/messages}}
+
+</body>
+</html>
